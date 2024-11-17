@@ -127,14 +127,6 @@ const Login: React.FC = () => {
     }
   };
   const { status, type: loginType } = userLoginState;
-  useEffect(async () => {
-    const res = await userRegisterUsingPost({
-      userAccount: 'kkcola',
-      userPassword: 'kk123456',
-      checkPassword: 'kk123456',
-    });
-    console.log(res);
-  });
   return (
     <div className={styles.container}>
       <Helmet>
