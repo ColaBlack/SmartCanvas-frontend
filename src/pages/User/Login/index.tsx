@@ -18,10 +18,9 @@ import {
 import { Helmet, history, useModel } from '@umijs/max';
 import { Alert, message, Tabs } from 'antd';
 import Settings from '../../../../config/defaultSettings';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { flushSync } from 'react-dom';
 import { createStyles } from 'antd-style';
-import { userRegisterUsingPost } from '@/services/SmartCanvas/userController';
 
 const useStyles = createStyles(({ token }) => {
   return {
@@ -67,10 +66,6 @@ const ActionIcons = () => {
       <WeiboCircleOutlined key="WeiboCircleOutlined" className={styles.action} />
     </>
   );
-};
-const Lang = () => {
-  const { styles } = useStyles();
-  return;
 };
 const LoginMessage: React.FC<{
   content: string;
@@ -134,7 +129,6 @@ const Login: React.FC = () => {
           {'登录'}- {Settings.title}
         </title>
       </Helmet>
-      <Lang />
       <div
         style={{
           flex: '1',
@@ -241,7 +235,7 @@ const Login: React.FC = () => {
                 placeholder={'请输入验证码！'}
                 captchaTextRender={(timing, count) => {
                   if (timing) {
-                    return `${count} ${'秒后重新获取'}`;
+                    return `${count} 秒后重新获取`;
                   }
                   return '获取验证码';
                 }}
