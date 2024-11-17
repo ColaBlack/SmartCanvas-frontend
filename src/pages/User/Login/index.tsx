@@ -15,12 +15,14 @@ import {
   ProFormCheckbox,
   ProFormText,
 } from '@ant-design/pro-components';
-import { history, useModel, Helmet } from '@umijs/max';
+import { Helmet, history, useModel } from '@umijs/max';
 import { Alert, message, Tabs } from 'antd';
 import Settings from '../../../../config/defaultSettings';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { flushSync } from 'react-dom';
 import { createStyles } from 'antd-style';
+import { userRegisterUsingPost } from '@/services/SmartCanvas/userController';
+
 const useStyles = createStyles(({ token }) => {
   return {
     action: {
@@ -125,6 +127,14 @@ const Login: React.FC = () => {
     }
   };
   const { status, type: loginType } = userLoginState;
+  useEffect(async () => {
+    const res = await userRegisterUsingPost({
+      userAccount: 'kkcola',
+      userPassword: 'kk123456',
+      checkPassword: 'kk123456',
+    });
+    console.log(res);
+  });
   return (
     <div className={styles.container}>
       <Helmet>
