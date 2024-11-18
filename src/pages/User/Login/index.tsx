@@ -68,6 +68,7 @@ const Login: React.FC = () => {
     const userInfo = await getLoginUserUsingGet();
     if (userInfo) {
       flushSync(() => {
+        // @ts-ignore
         setInitialState((s) => ({
           ...s,
           currentUser: userInfo,
@@ -91,6 +92,7 @@ const Login: React.FC = () => {
       }
       console.log(msg);
       // 如果失败去设置用户错误信息
+      // @ts-ignore
       setUserLoginState(msg);
     } catch (error) {
       const defaultLoginFailureMessage = '登录失败，请重试！';

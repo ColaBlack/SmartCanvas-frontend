@@ -1,6 +1,12 @@
 import { history } from '@umijs/max';
 import { errorConfig } from './requestConfig';
 import { getLoginUserUsingGet } from '@/services/SmartCanvas/userController';
+import {RunTimeLayoutConfig} from "@@/plugin-layout/types";
+import {AvatarDropdown, AvatarName, Footer, Question} from "@/components";
+import isDev from "ahooks/es/utils/isDev";
+import {Link} from "@@/exports";
+import {LinkOutlined} from "@ant-design/icons-svg";
+import defaultSettings from "../config/defaultSettings";
 
 const loginPath = '/user/login';
 
@@ -27,6 +33,21 @@ export async function getInitialState(): Promise<{ currentUser?: API.LoginUserVO
 }
 
 // ProLayout 支持的api https://procomponents.ant.design/components/layout
+export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) => {
+  return {
+    avatarProps: {
+      src: initialState?.currentUser?.userAvatar,
+      title: <AvatarName />,
+      render: (_, avatarChildren) => {
+        return <AvatarDropdown>{avatarChildren}</AvatarDropdown>;
+      },
+    },
+    waterMarkProps: {
+      content: initialState?.currentUser?.userName,
+    },
+  };
+};
+
 /**
  * @name request 配置，可以配置错误处理
  * 它基于 axios 和 ahooks 的 useRequest 提供了一套统一的网络请求和错误处理方案。
