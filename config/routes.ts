@@ -16,6 +16,7 @@ export default [
     ],
   },
   { path: '/welcome', name: '欢迎', icon: 'smile', component: './Welcome' },
+  { path: '/GenChart', name: '智能分析', icon: 'LineChartOutlined', component: './Chart/GenChart' },
   {
     path: '/admin',
     name: '管理页',
