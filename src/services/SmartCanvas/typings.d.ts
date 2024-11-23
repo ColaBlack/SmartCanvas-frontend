@@ -5,6 +5,18 @@ declare namespace API {
     message?: string;
   };
 
+  type BaseResponseChart_ = {
+    code?: number;
+    data?: Chart;
+    message?: string;
+  };
+
+  type BaseResponseGenResultVO_ = {
+    code?: number;
+    data?: GenResultVO;
+    message?: string;
+  };
+
   type BaseResponseLoginUserVO_ = {
     code?: number;
     data?: LoginUserVO;
@@ -17,13 +29,86 @@ declare namespace API {
     message?: string;
   };
 
+  type BaseResponsePageChart_ = {
+    code?: number;
+    data?: PageChart_;
+    message?: string;
+  };
+
   type BaseResponsePageUser_ = {
     code?: number;
     data?: PageUser_;
     message?: string;
   };
 
+  type Chart = {
+    analyzedResult?: string;
+    chartData?: string;
+    chartName?: string;
+    chartType?: string;
+    createTime?: string;
+    createrId?: number;
+    generatedChart?: string;
+    goal?: string;
+    hasDeleted?: number;
+    id?: number;
+    updateTime?: string;
+  };
+
+  type ChartAddRequest = {
+    chartData?: string;
+    chartName?: string;
+    chartType?: string;
+    goal?: string;
+  };
+
+  type ChartEditRequest = {
+    chartData?: string;
+    chartName?: string;
+    chartType?: string;
+    goal?: string;
+    id?: number;
+  };
+
+  type ChartQueryRequest = {
+    chartName?: string;
+    chartType?: string;
+    creatorId?: number;
+    current?: number;
+    goal?: string;
+    id?: number;
+    pageSize?: number;
+    sortField?: string;
+    sortOrder?: string;
+  };
+
+  type ChartUpdateRequest = {
+    analyzedResult?: string;
+    chartData?: string;
+    chartName?: string;
+    chartType?: string;
+    generatedChart?: string;
+    goal?: string;
+    id?: number;
+  };
+
   type DeleteRequest = {
+    id?: number;
+  };
+
+  type genChartByAiUsingPOSTParams = {
+    chartName?: string;
+    chartType?: string;
+    goal?: string;
+  };
+
+  type GenResultVO = {
+    option?: string;
+    result?: string;
+  };
+
+  type getChartByIdUsingGETParams = {
+    /** id */
     id?: number;
   };
 
@@ -40,6 +125,19 @@ declare namespace API {
   type OrderItem = {
     asc?: boolean;
     column?: string;
+  };
+
+  type PageChart_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: Chart[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
   };
 
   type PageUser_ = {
