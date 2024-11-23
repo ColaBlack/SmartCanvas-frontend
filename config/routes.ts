@@ -15,8 +15,24 @@ export default [
       },
     ],
   },
-  { path: '/welcome', name: '欢迎', icon: 'smile', component: './Welcome' },
-  { path: '/GenChart', name: '智能分析', icon: 'LineChartOutlined', component: './Chart/GenChart' },
+  {
+    path: '/welcome',
+    name: '欢迎',
+    icon: 'smile',
+    component: './Welcome',
+  },
+  {
+    path: '/GenChart',
+    name: '智能分析',
+    icon: 'LineChartOutlined',
+    component: './Chart/GenChart',
+  },
+  {
+    path: '/my/chart',
+    name: '历史分析',
+    icon: 'BarChartOutlined',
+    component: './Chart/MyChart',
+  },
   // {
   //   path: '/admin',
   //   name: '管理页',

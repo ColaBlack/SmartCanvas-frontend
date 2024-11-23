@@ -5,9 +5,9 @@ declare namespace API {
     message?: string;
   };
 
-  type BaseResponseChart_ = {
+  type BaseResponseChartVO_ = {
     code?: number;
-    data?: Chart;
+    data?: ChartVO;
     message?: string;
   };
 
@@ -32,6 +32,12 @@ declare namespace API {
   type BaseResponsePageChart_ = {
     code?: number;
     data?: PageChart_;
+    message?: string;
+  };
+
+  type BaseResponsePageChartVO_ = {
+    code?: number;
+    data?: PageChartVO_;
     message?: string;
   };
 
@@ -92,6 +98,17 @@ declare namespace API {
     id?: number;
   };
 
+  type ChartVO = {
+    analyzedResult?: string;
+    chartData?: string;
+    chartName?: string;
+    chartType?: string;
+    createTime?: string;
+    generatedChart?: string;
+    goal?: string;
+    id?: number;
+  };
+
   type DeleteRequest = {
     id?: number;
   };
@@ -135,6 +152,19 @@ declare namespace API {
     orders?: OrderItem[];
     pages?: number;
     records?: Chart[];
+    searchCount?: boolean;
+    size?: number;
+    total?: number;
+  };
+
+  type PageChartVO_ = {
+    countId?: string;
+    current?: number;
+    maxLimit?: number;
+    optimizeCountSql?: boolean;
+    orders?: OrderItem[];
+    pages?: number;
+    records?: ChartVO[];
     searchCount?: boolean;
     size?: number;
     total?: number;
