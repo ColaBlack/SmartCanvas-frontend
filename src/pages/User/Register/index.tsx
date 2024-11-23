@@ -177,7 +177,7 @@ const Login: React.FC = () => {
               marginBottom: 24,
             }}
           >
-            <Link to={'/user/login'}>已有账号？登录</Link>
+            <Link to={'/user/register'}>还没有账号？注册</Link>
           </div>
         </LoginForm>
       </div>

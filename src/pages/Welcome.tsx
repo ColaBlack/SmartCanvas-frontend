@@ -1,8 +1,6 @@
 import {PageContainer} from '@ant-design/pro-components';
-import {useModel} from '@umijs/max';
 import {Card, theme} from 'antd';
 import React from 'react';
-import {LinearGradient} from "zrender";
 
 /**
  * 每个单独的卡片，为了复用样式抽成了组件
@@ -86,7 +84,6 @@ const InfoCard: React.FC<{
 
 const Welcome: React.FC = () => {
   const { token } = theme.useToken();
-  const { initialState } = useModel('@@initialState');
   return (
     <PageContainer>
       <Card
