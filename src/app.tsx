@@ -1,12 +1,9 @@
 import { history } from '@umijs/max';
 import { errorConfig } from './requestConfig';
 import { getLoginUserUsingGet } from '@/services/SmartCanvas/userController';
-import {RunTimeLayoutConfig} from "@@/plugin-layout/types";
-import {AvatarDropdown, AvatarName, Footer, Question} from "@/components";
-import isDev from "ahooks/es/utils/isDev";
-import {Link} from "@@/exports";
-import {LinkOutlined} from "@ant-design/icons-svg";
-import defaultSettings from "../config/defaultSettings";
+import { RunTimeLayoutConfig } from '@@/plugin-layout/types';
+import { AvatarDropdown, AvatarName } from '@/components';
+import logo from '../public/logo.svg';
 
 const loginPath = '/user/login';
 
@@ -33,8 +30,9 @@ export async function getInitialState(): Promise<{ currentUser?: API.LoginUserVO
 }
 
 // ProLayout 支持的api https://procomponents.ant.design/components/layout
-export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) => {
+export const layout: RunTimeLayoutConfig = ({ initialState }) => {
   return {
+    logo,
     avatarProps: {
       src: initialState?.currentUser?.userAvatar,
       title: <AvatarName />,

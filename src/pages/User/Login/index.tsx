@@ -2,7 +2,7 @@ import { Footer } from '@/components';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { LoginForm, ProFormText } from '@ant-design/pro-components';
 import { Helmet, history, useModel } from '@umijs/max';
-import { Alert, message, Tabs } from 'antd';
+import { message, Tabs } from 'antd';
 import Settings from '../../../../config/defaultSettings';
 import React, { useState } from 'react';
 import { flushSync } from 'react-dom';
@@ -45,22 +45,8 @@ const useStyles = createStyles(({ token }) => {
     },
   };
 });
-const LoginMessage: React.FC<{
-  content: string;
-}> = ({ content }) => {
-  return (
-    <Alert
-      style={{
-        marginBottom: 24,
-      }}
-      message={content}
-      type="error"
-      showIcon
-    />
-  );
-};
 const Login: React.FC = () => {
-  const [userLoginState, setUserLoginState] = useState<API.LoginResult>({});
+  const [, setUserLoginState] = useState<API.LoginUserVO>({});
   const [type, setType] = useState<string>('account');
   const { setInitialState } = useModel('@@initialState');
   const { styles } = useStyles();
@@ -100,7 +86,6 @@ const Login: React.FC = () => {
       message.error(defaultLoginFailureMessage);
     }
   };
-  const { status, type: loginType } = userLoginState;
   return (
     <div className={styles.container}>
       <Helmet>
@@ -137,9 +122,6 @@ const Login: React.FC = () => {
               },
             ]}
           />
-          {status === 'error' && loginType === 'account' && (
-            <LoginMessage content={'用户名或密码错误，请重试！'} />
-          )}
           {type === 'account' && (
             <>
               <ProFormText
