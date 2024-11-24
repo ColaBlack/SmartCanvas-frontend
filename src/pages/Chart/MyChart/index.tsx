@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { listChartByPageUsingPost } from '@/services/SmartCanvas/chartController';
 import { Card, List, message } from 'antd';
 import ReactEcharts from 'echarts-for-react';
+import Search from 'antd/es/input/Search';
 
 const MyChart: React.FC = () => {
   const [data, setData] = useState<API.ChartVO[]>([]);
   const [loading, setLoading] = useState(false);
   const [params, setParams] = useState<API.ChartQueryRequest>({
     current: 1,
-    pageSize: 5,
+    pageSize: 2,
     chartName: undefined,
   });
   const [total, setTotal] = useState<number>();
@@ -30,6 +31,17 @@ const MyChart: React.FC = () => {
 
   return (
     <div id="gen-chart-page">
+      <Search
+        allowClear
+        placeholder="请输入图表名称"
+        enterButton="搜索"
+        size="large"
+        loading={loading}
+        style={{ maxWidth: 600, marginBottom: 20, marginLeft: 'calc(50% - 300px)' }}
+        onSearch={(value) => {
+          setParams({ ...params, chartName: value, current: 0 });
+        }}
+      />
       <List
         loading={loading}
         itemLayout="vertical"

@@ -23,9 +23,15 @@ export default [
   },
   {
     path: '/GenChart',
-    name: '智能分析',
+    name: '智能分析-同步',
     icon: 'LineChartOutlined',
     component: './Chart/GenChart',
+  },
+  {
+    path: '/GenChartAsync',
+    name: '智能分析-异步',
+    icon: 'RadarChartOutlined',
+    component: './Chart/GenChartAsync',
   },
   {
     path: '/my/chart',
