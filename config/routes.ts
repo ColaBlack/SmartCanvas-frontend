@@ -39,6 +39,12 @@ export default [
     icon: 'BarChartOutlined',
     component: './Chart/MyChart',
   },
+  {
+    path: '/game',
+    name: '休息一下',
+    icon: 'BarChartOutlined',
+    component: './Game',
+  },
   // {
   //   path: '/admin',
   //   name: '管理页',
