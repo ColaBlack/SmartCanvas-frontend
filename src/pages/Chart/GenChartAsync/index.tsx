@@ -1,7 +1,7 @@
 import { Card, Col, message, Row } from 'antd';
 import React, { useState } from 'react';
 import SubmitChart from '@/components/SubmitChart/SubmitChart';
-import { genChartByAiUsingPost } from '@/services/SmartCanvas/chartController';
+import { genChartAsyncByAiUsingPost } from '@/services/SmartCanvas/chartController';
 
 const GenChartAsync: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -12,7 +12,7 @@ const GenChartAsync: React.FC = () => {
       file: undefined,
     };
     setLoading(true);
-    const res = await genChartByAiUsingPost(params, {}, values.file.fileList[0].originFileObj);
+    const res = await genChartAsyncByAiUsingPost(params, {}, values.file.fileList[0].originFileObj);
     try {
       if (res.code === 200) {
         message.success('图表生成成功！');
@@ -25,8 +25,9 @@ const GenChartAsync: React.FC = () => {
       } else {
         message.error('图表生成失败！未知错误');
       }
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
   return (
     <div id="gen-chart-page">

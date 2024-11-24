@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { listChartByPageUsingPost } from '@/services/SmartCanvas/chartController';
-import { Card, List, message } from 'antd';
-import ReactEcharts from 'echarts-for-react';
+import { Card, List, message, Result } from 'antd';
 import Search from 'antd/es/input/Search';
+import ReactEcharts from 'echarts-for-react';
 
 const MyChart: React.FC = () => {
   const [data, setData] = useState<API.ChartVO[]>([]);
@@ -29,6 +29,20 @@ const MyChart: React.FC = () => {
     fetchData();
   }, [params]);
 
+  const chartRender = (item: API.ChartVO) => {
+    try {
+      const option = JSON.parse(item.generatedChart ?? '{}');
+      return <ReactEcharts style={{ minWidth: 400 }} option={option} />;
+    } catch (e) {
+      return (
+        <Result
+          status="error"
+          title="AI绘图失败"
+          subTitle="这次分析AI没能成功给出分析图，您可以尝试重新分析。"
+        />
+      );
+    }
+  };
   return (
     <div id="gen-chart-page">
       <Search
@@ -55,25 +69,59 @@ const MyChart: React.FC = () => {
           current: params.current,
         }}
         dataSource={data}
-        renderItem={(item) => (
-          <Card style={{ marginBottom: 20 }}>
-            <List.Item
-              key={item.id}
-              extra={
-                <ReactEcharts
-                  style={{ minWidth: 400 }}
-                  option={{ ...JSON.parse(item.generatedChart ?? '{}') }}
+        renderItem={(item) =>
+          (item.status === 'success' && (
+            <Card style={{ marginBottom: 20 }}>
+              <List.Item key={item.id} extra={chartRender(item)}>
+                <List.Item.Meta
+                  title={'图表名称：' + item.chartName}
+                  description={'分析目标：' + item.goal}
                 />
-              }
-            >
-              <List.Item.Meta
-                title={'图表名称：' + item.chartName}
-                description={'分析目标：' + item.goal}
-              />
-              分析结果：{item.analyzedResult}
-            </List.Item>
-          </Card>
-        )}
+                分析结果：{item.analyzedResult}
+              </List.Item>
+            </Card>
+          )) ||
+          (item.status === 'failed' && (
+            <Card style={{ marginBottom: 20 }}>
+              <List.Item
+                key={item.id}
+                extra={
+                  <Result
+                    status="error"
+                    title="AI绘图失败"
+                    subTitle="这次分析AI没能成功给出分析图，您可以尝试重新分析。"
+                  />
+                }
+              >
+                <List.Item.Meta
+                  title={'图表名称：' + item.chartName}
+                  description={'分析目标：' + item.goal}
+                />
+                分析结果：分析失败，请重新分析
+              </List.Item>
+            </Card>
+          )) ||
+          (item.status === 'processing' && (
+            <Card style={{ marginBottom: 20 }}>
+              <List.Item
+                key={item.id}
+                extra={
+                  <Result
+                    status="warning"
+                    title="正在分析中"
+                    subTitle="AI正在分析您的图表，请稍后查看。"
+                  />
+                }
+              >
+                <List.Item.Meta
+                  title={'图表名称：' + item.chartName}
+                  description={'分析目标：' + item.goal}
+                />
+                分析结果：正在分析中
+              </List.Item>
+            </Card>
+          ))
+        }
       />
     </div>
   );
