@@ -40,9 +40,9 @@ export default [
     component: './Chart/MyChart',
   },
   {
-    path: '/gameCode',
+    path: '/game',
     name: '休息一下',
-    icon: 'BarChartOutlined',
+    icon: 'CustomerServiceOutlined',
     component: './Game',
   },
   // {
