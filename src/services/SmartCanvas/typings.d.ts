@@ -131,6 +131,7 @@ declare namespace API {
 
   type GenResultVO = {
     execmsg?: string;
+    id?: number;
     option?: string;
     result?: string;
     status?: string;
