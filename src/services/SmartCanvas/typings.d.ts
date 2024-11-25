@@ -4,19 +4,6 @@ declare namespace API {
     data?: boolean;
     message?: string;
   };
-
-  type BaseResponseChartVO_ = {
-    code?: number;
-    data?: ChartVO;
-    message?: string;
-  };
-
-  type BaseResponseGenResultVO_ = {
-    code?: number;
-    data?: GenResultVO;
-    message?: string;
-  };
-
   type BaseResponseLoginUserVO_ = {
     code?: number;
     data?: LoginUserVO;
@@ -28,120 +15,14 @@ declare namespace API {
     data?: number;
     message?: string;
   };
-
-  type BaseResponsePageChart_ = {
-    code?: number;
-    data?: PageChart_;
-    message?: string;
-  };
-
-  type BaseResponsePageChartVO_ = {
-    code?: number;
-    data?: PageChartVO_;
-    message?: string;
-  };
-
   type BaseResponsePageUser_ = {
     code?: number;
     data?: PageUser_;
     message?: string;
   };
-
-  type Chart = {
-    analyzedResult?: string;
-    chartData?: string;
-    chartName?: string;
-    chartType?: string;
-    createTime?: string;
-    createrId?: number;
-    execmsg?: string;
-    generatedChart?: string;
-    goal?: string;
-    hasDeleted?: number;
-    id?: number;
-    status?: string;
-    updateTime?: string;
-  };
-
-  type ChartAddRequest = {
-    chartData?: string;
-    chartName?: string;
-    chartType?: string;
-    goal?: string;
-  };
-
-  type ChartEditRequest = {
-    chartData?: string;
-    chartName?: string;
-    chartType?: string;
-    goal?: string;
-    id?: number;
-  };
-
-  type ChartQueryRequest = {
-    chartName?: string;
-    chartType?: string;
-    creatorId?: number;
-    current?: number;
-    goal?: string;
-    id?: number;
-    pageSize?: number;
-    sortField?: string;
-    sortOrder?: string;
-  };
-
-  type ChartUpdateRequest = {
-    analyzedResult?: string;
-    chartData?: string;
-    chartName?: string;
-    chartType?: string;
-    generatedChart?: string;
-    goal?: string;
-    id?: number;
-  };
-
-  type ChartVO = {
-    analyzedResult?: string;
-    chartData?: string;
-    chartName?: string;
-    chartType?: string;
-    createTime?: string;
-    execmsg?: string;
-    generatedChart?: string;
-    goal?: string;
-    id?: number;
-    status?: string;
-  };
-
   type DeleteRequest = {
     id?: number;
   };
-
-  type genChartAsyncByAiUsingPOSTParams = {
-    chartName?: string;
-    chartType?: string;
-    goal?: string;
-  };
-
-  type genChartByAiUsingPOSTParams = {
-    chartName?: string;
-    chartType?: string;
-    goal?: string;
-  };
-
-  type GenResultVO = {
-    execmsg?: string;
-    id?: number;
-    option?: string;
-    result?: string;
-    status?: string;
-  };
-
-  type getChartByIdUsingGETParams = {
-    /** id */
-    id?: number;
-  };
-
   type LoginUserVO = {
     createTime?: string;
     id?: number;
@@ -156,33 +37,6 @@ declare namespace API {
     asc?: boolean;
     column?: string;
   };
-
-  type PageChart_ = {
-    countId?: string;
-    current?: number;
-    maxLimit?: number;
-    optimizeCountSql?: boolean;
-    orders?: OrderItem[];
-    pages?: number;
-    records?: Chart[];
-    searchCount?: boolean;
-    size?: number;
-    total?: number;
-  };
-
-  type PageChartVO_ = {
-    countId?: string;
-    current?: number;
-    maxLimit?: number;
-    optimizeCountSql?: boolean;
-    orders?: OrderItem[];
-    pages?: number;
-    records?: ChartVO[];
-    searchCount?: boolean;
-    size?: number;
-    total?: number;
-  };
-
   type PageUser_ = {
     countId?: string;
     current?: number;

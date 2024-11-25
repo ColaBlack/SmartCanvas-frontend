@@ -22,33 +22,6 @@ export default [
     component: './Welcome',
   },
   {
-    path: '/GenChart',
-    name: '智能分析-同步',
-    icon: 'LineChartOutlined',
-    access: 'notBanned',
-    component: './Chart/GenChart',
-  },
-  {
-    path: '/GenChartAsync',
-    name: '智能分析-异步',
-    icon: 'RadarChartOutlined',
-    access: 'notBanned',
-    component: './Chart/GenChartAsync',
-  },
-  {
-    path: '/my/chart',
-    name: '历史分析',
-    icon: 'BarChartOutlined',
-    access: 'notBanned',
-    component: './Chart/MyChart',
-  },
-  {
-    path: '/game',
-    name: '休息一下',
-    icon: 'CustomerServiceOutlined',
-    component: './Game',
-  },
-  {
     path: '/admin',
     name: '管理页',
     icon: 'crown',
