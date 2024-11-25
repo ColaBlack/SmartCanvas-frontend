@@ -1,15 +1,11 @@
-# SmartCanvas-frontend
+# react-model
 
 #### 介绍
 
-SmartCanvas-frontend 是 智绘蓝图 的前端项目，主要负责处理和用户交互相关的功能，并与后端项目 SmartCanvas-backend 进行数据交互。
-智绘蓝图是一个使用ai进行可视化分析的网站。你可以通过它快速的制作自己的可视化分析图表，并将其分享给其他人。
-
-支持以同步的方式提交，也可以使用异步的方式提交分析信息。异步的方式可以提高用户体验。
+react-model是一个基于我自己的SmartCanvas项目抽象的react项目模版，也是基于ant design pro进行的二次开发。
 
 #### 技术栈
 
-- phaser.js 进行页面小游戏游戏开发
 - 基于ant design pro进行二次开发
 - 使用react开发
 - 使用ant design ui组件库
@@ -25,19 +21,13 @@ SmartCanvas-frontend 是 智绘蓝图 的前端项目，主要负责处理和用
 
 #### 页面展示
 
-1. 数据提交页面
-   ![数据提交页面](https://2f7171c5.cloudflare-imgbed-bo7.pages.dev/file/1732497426918_同步提交.png)
-2. 历史记录页面
-   ![历史记录页面](https://2f7171c5.cloudflare-imgbed-bo7.pages.dev/file/1732497424761_历史记录.png)
-3. 小游戏页面
-   ![小游戏页面](https://2f7171c5.cloudflare-imgbed-bo7.pages.dev/file/1732497426104_小游戏.png)
-4. 用户管理页面
+1. 用户管理页面
    ![用户管理页面](https://2f7171c5.cloudflare-imgbed-bo7.pages.dev/file/1732497433409_用户管理.png)
-5. 欢迎页面
+2. 欢迎页面
    ![欢迎页面](https://2f7171c5.cloudflare-imgbed-bo7.pages.dev/file/1732497431280_欢迎页.png)
-6. 登录\注册页面
+3. 登录\注册页面
    ![登录\注册页面](https://2f7171c5.cloudflare-imgbed-bo7.pages.dev/file/1732497434897_登录注册.png)
-7. 404和无权限页面为ant design pro默认页面
+4. 404和无权限页面为ant design pro默认页面
 
 #### 参与贡献
 
@@ -48,7 +38,7 @@ SmartCanvas-frontend 是 智绘蓝图 的前端项目，主要负责处理和用
 
 #### 友情连接
 
-- [后端项目gitee地址](https://gitee.com/colablack/smart-canvas-backend)
-- [后端项目github地址](https://github.com/ColaBlack/smartCanvas-backend)
+- [后端项目gitee地址](https://gitee.com/colablack/spring-model)
+- [后端项目github地址](https://github.com/ColaBlack/spring-model)
 - [我的个人文档](https://colablack.github.io/)
 - 知乎搜索半名浮生 / CSDN搜索生半名浮 / B站搜索名浮半生 就能找到我哦
