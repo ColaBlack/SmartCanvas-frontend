@@ -25,18 +25,21 @@ export default [
     path: '/GenChart',
     name: '智能分析-同步',
     icon: 'LineChartOutlined',
+    access: 'notBanned',
     component: './Chart/GenChart',
   },
   {
     path: '/GenChartAsync',
     name: '智能分析-异步',
     icon: 'RadarChartOutlined',
+    access: 'notBanned',
     component: './Chart/GenChartAsync',
   },
   {
     path: '/my/chart',
     name: '历史分析',
     icon: 'BarChartOutlined',
+    access: 'notBanned',
     component: './Chart/MyChart',
   },
   {
@@ -50,9 +53,21 @@ export default [
     name: '管理页',
     icon: 'crown',
     access: 'canAdmin',
-    routes: [{ path: '/admin/user', name: '用户管理页', component: './User/Admin' }],
+    routes: [
+      {
+        path: '/admin/user',
+        name: '用户管理页',
+        component: './User/Admin',
+      },
+    ],
   },
-  // { name: '查询表格', icon: 'table', path: '/list', component: './TableList' },
-  { path: '/', redirect: '/welcome' },
-  { path: '*', layout: false, component: './404' },
+  {
+    path: '/',
+    redirect: '/welcome',
+  },
+  {
+    path: '*',
+    layout: false,
+    component: './404',
+  },
 ];

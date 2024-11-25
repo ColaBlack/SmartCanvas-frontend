@@ -76,6 +76,9 @@ const UserAdminPage: React.FC = () => {
         admin: {
           text: '管理员',
         },
+        ban: {
+          text: '封禁',
+        },
       },
     },
     {
